@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <meta
+      name="description"
+      content="QHandは、名刺やURL、短い案内を、目の前の相手へその場でQRを使って直接手渡せるWebアプリ。本文をサーバーに預けず届けます。"
+    />
+    <meta property="og:title" content="QHand — その情報、目の前の人へ。" />
+    <meta
+      property="og:description"
+      content="2台のスマートフォンをQRでつなぎ、目の前の相手へ、その場で情報を直接手渡す。QHandの受け渡しを見てみる。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>QHand — その情報、目の前の人へ。</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へ移動</a>
+    <header class="site-header">
+      <a href="#main" class="wordmark" aria-label="QHand ホーム"
+        >QHand<span>.</span></a
+      >
+      <nav aria-label="メインナビゲーション">
+        <a href="#choose">渡す情報を選ぶ</a><a href="#handoff">受け渡しを見る</a
+        ><a href="#other-uses">メモ・案内</a>
+      </nav>
+      <a class="header-cta app-link" href="https://qhand.pages.dev/"
+        >アプリを開く <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main">
+      <section class="opening" aria-labelledby="opening-title">
+        <div class="opening-copy">
+          <p class="section-label">QRで、その場で手渡す。</p>
+          <h1 id="opening-title">
+            その場で、<br />目の前の人へ<span class="accent">。</span>
+          </h1>
+          <p class="opening-description">
+            名刺も、URLも、短い案内も。<br />QHandは、2台のスマートフォンをQRでつなぎ、<br />目の前の相手へ情報を直接手渡すWebアプリです。
+          </p>
+          <a class="button app-link" href="https://qhand.pages.dev/"
+            >QHandで手渡す <span aria-hidden="true">↗</span></a
+          >
+          <p class="small-note">登録も、インストールもせず、ブラウザから。</p>
+        </div>
+        <figure class="opening-screen">
+          <div class="screen-caption">
+            <span>QHandの受け渡しイメージ</span
+            ><span>2台のスマートフォン / QR</span>
+          </div>
+          <div
+            class="hero-handoff-visual"
+            role="img"
+            aria-label="2台のスマートフォンの間にQRがあり、選んだ情報を目の前の相手へ直接手渡すイメージ。"
+          >
+            <div class="hero-phone hero-phone--sender" aria-hidden="true">
+              <span class="hero-phone-notch"></span>
+              <div class="hero-phone-screen">
+                <span class="hero-profile-icon"></span>
+                <div class="hero-selection-card">
+                  <span><i></i><b></b><em class="is-selected"></em></span>
+                  <span><i></i><b></b><em class="is-selected"></em></span>
+                  <span><i></i><b></b><em></em></span>
+                  <span><i></i><b></b><em class="is-selected"></em></span>
+                </div>
+                <span class="hero-phone-action">→</span>
+              </div>
+            </div>
+
+            <span
+              class="hero-connector hero-connector--before"
+              aria-hidden="true"
+            ></span>
+            <div class="hero-code-card" aria-hidden="true">
+              <div class="hero-qr">
+                <i class="hero-qr-finder hero-qr-finder--tl"></i>
+                <i class="hero-qr-finder hero-qr-finder--tr"></i>
+                <i class="hero-qr-finder hero-qr-finder--bl"></i>
+                <span class="hero-qr-modules"></span>
+              </div>
+              <span class="hero-code-lock"></span>
+            </div>
+            <span
+              class="hero-connector hero-connector--after"
+              aria-hidden="true"
+            ></span>
+
+            <div class="hero-phone hero-phone--receiver" aria-hidden="true">
+              <span class="hero-phone-notch"></span>
+              <div class="hero-phone-screen">
+                <span class="hero-profile-icon"></span>
+                <div class="hero-received-card">
+                  <span><i></i><b></b></span>
+                  <span><i></i><b></b></span>
+                  <span><i></i><b></b></span>
+                </div>
+                <span class="hero-complete-mark"></span>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            <span class="annotation-line"></span
+            >2台をQRでつなぎ、<br />その場で相手へ直接渡す。
+          </figcaption>
+        </figure>
+        <p class="opening-margin">本文はサーバーに預けず、<br />QRで相手へ。</p>
+        <a class="opening-scroll" href="#choose"
+          >渡す情報を選ぶ <span aria-hidden="true">↓</span></a
+        >
+      </section>
+      <section
+        class="selection-section"
+        id="choose"
+        aria-labelledby="selection-title"
+      >
+        <div class="selection-heading">
+          <p class="section-label">渡す前に</p>
+          <h2 id="selection-title">
+            名刺の全部ではなく、<br />今回渡したい項目だけ。
+          </h2>
+          <p>
+            名前は渡す。電話番号は渡さない。<br />相手や場面に合わせて、名刺に含める項目を選べます。
+          </p>
+        </div>
+        <div class="selection-workspace">
+          <figure class="selection-screen">
+            <img
+              src="/screens/card-selection-placeholder.png"
+              width="440"
+              height="850"
+              loading="lazy"
+              alt="名刺の項目調整画面を差し替えるための無地の仮画像。"
+            />
+            <figcaption>QHand「今回渡す情報」の実画面を掲載予定</figcaption>
+          </figure>
+          <figure class="selection-result-screen">
+            <img
+              src="/screens/card-selection-result-placeholder.png"
+              width="440"
+              height="850"
+              loading="lazy"
+              alt="選んだ名刺項目の内容確認画面を差し替えるための無地の仮画像。"
+            />
+            <figcaption>QHand「内容確認」の実画面を掲載予定</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section
+        class="handoff-section"
+        id="handoff"
+        aria-labelledby="handoff-title"
+      >
+        <div class="handoff-heading">
+          <p class="section-label">受け渡しのあいだ</p>
+          <h2 id="handoff-title">最初のQRでは、<br />まだ本文は渡らない。</h2>
+          <p>
+            まず、相手のブラウザで受け取りの準備。<br />つながったら、あなたの画面が次のQRに切り替わります。
+          </p>
+          <span class="method-label"
+            >通常版の受け渡し / 両方の端末に通信が必要です</span
+          >
+        </div>
+        <div class="handoff-demo" data-stage="start">
+          <div class="journey-track" aria-label="受け渡しの進行状況">
+            <span data-phase="start" aria-current="step">開始QRを読む</span
+            ><i aria-hidden="true">→</i
+            ><span data-phase="connecting">ブラウザで準備</span
+            ><i aria-hidden="true">→</i
+            ><span data-phase="encrypted">次のQRを読む</span
+            ><i aria-hidden="true">→</i
+            ><span data-phase="received">受け取り</span>
+          </div>
+          <div class="exchange-workspace">
+            <div class="terminal">
+              <p class="terminal-label">あなた <span>渡す人の画面</span></p>
+              <div id="sender-screen" class="exchange-screen"></div>
+            </div>
+            <div class="transfer-channel" aria-hidden="true">
+              <span class="channel-label" id="channel-label"
+                >受信ページを開く</span
+              >
+              <div class="transfer-line">
+                <span class="data-packet"></span
+                ><span class="data-arrow">→</span>
+              </div>
+              <span class="channel-body" id="channel-body"
+                >本文は、まだ<br />あなたの端末に。</span
+              >
+            </div>
+            <div class="terminal receiver-terminal">
+              <p class="terminal-label">
+                目の前の相手 <span>受け取る人の画面</span>
+              </p>
+              <div id="receiver-screen" class="exchange-screen"></div>
+            </div>
+          </div>
+          <div class="demo-narration">
+            <p id="narration" aria-live="polite"></p>
+            <div class="demo-controls">
+              <button type="button" id="advance-demo">
+                最初のQRを読み取る →</button
+              ><button type="button" id="replay-demo" class="replay-button">
+                最初から見る ↺</button
+              ><button
+                type="button"
+                id="motion-toggle"
+                class="motion-button"
+                aria-pressed="false"
+              >
+                動きを止める
+              </button>
+            </div>
+          </div>
+          <p class="demo-caption">
+            各画面は実画面スクリーンショットへ差し替えるための仮画像です。読み取り・カメラ起動・実際の通信は行いません。
+          </p>
+        </div>
+        <div class="handoff-afterword">
+          <p>読み取るのは、<strong>2回。</strong></p>
+          <p>
+            はじめは標準カメラで。次は、開いたQHandの画面で。<br />渡す人は、相手の受け取りが終わるまでQRを見せておきます。
+          </p>
+        </div>
+      </section>
+      <section
+        class="boundaries-section"
+        id="boundaries"
+        aria-labelledby="boundaries-title"
+      >
+        <p class="section-label">QHandがしないこと</p>
+        <div class="boundaries-intro">
+          <h2 id="boundaries-title">
+            この受け渡しに、<br />必要のないものは<br /><span class="accent"
+              >持たない。</span
+            >
+          </h2>
+          <p>
+            本文を預かる保管庫にも、<br />友だちを増やすサービスにもならない。<br />目の前の相手に渡す、その一回のために。
+          </p>
+        </div>
+        <dl class="boundaries-list">
+          <div>
+            <dt>本文をサーバーに送らない。</dt>
+            <dd>
+              名刺やメモの本文は、暗号化してQRで渡します。サーバーが扱うのは、接続準備のための一時情報です。
+            </dd>
+          </div>
+          <div>
+            <dt>外した項目は、隠して送らない。</dt>
+            <dd>
+              共有をOFFにした項目は、暗号化する前に除外します。相手の画面で見えなくするだけではありません。
+            </dd>
+          </div>
+          <div>
+            <dt>受け取った名刺を、勝手に同期しない。</dt>
+            <dd>
+              名刺を保管する先は、その端末・そのブラウザです。別の端末へ自動では引き継がれません。ブラウザのデータを消すと、保管した名刺も失われます。
+            </dd>
+          </div>
+        </dl>
+      </section>
+      <section
+        class="other-uses-section"
+        id="other-uses"
+        aria-labelledby="other-uses-title"
+      >
+        <div class="other-uses-heading">
+          <p class="section-label">名刺以外にも</p>
+          <h2 id="other-uses-title">
+            メモや短い案内も、<br />同じように手渡せます。
+          </h2>
+          <p>
+            展示会のURL、待ち合わせ場所、来客用Wi-Fi。<br />連絡先ではない情報は「メモ・案内」としてまとめて渡せます。
+          </p>
+        </div>
+        <div class="other-uses">
+          <article class="link-use">
+            <span class="use-label">URLや、短い案内なら</span>
+            <h3>伝えたい内容を、<br />メモにまとめる。</h3>
+            <p>
+              タイトルと中身を項目ごとに入力。<br />URLだけでなく、「何のリンクか」も一緒に渡せます。
+            </p>
+            <a
+              href="https://qhand.pages.dev/structured-data/new"
+              class="text-link app-link"
+              data-app-path="structured-data/new"
+              >メモ・案内を作る <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article class="wifi-use">
+            <div>
+              <span class="use-label">たとえば、来客へのWi-Fi案内</span>
+              <h3>読み上げずに、<br />画面越しに渡す。</h3>
+              <p>
+                Wi-Fi名とパスワードを別々の項目に。<br />伏せた内容は、必要なときに表示できます。
+              </p>
+              <p class="small-note">Wi-Fiへの接続操作は端末側で行います。</p>
+            </div>
+            <figure>
+              <img
+                src="/screens/wifi-preview.png"
+                width="392"
+                height="497"
+                loading="lazy"
+                alt="実際のQHand画面。Wi-Fi名Guest-WiFiと、伏せ字で表示されたパスワード。"
+              />
+              <figcaption>実際の内容確認画面・入力例</figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+      <aside class="fit-note">
+        <p>
+          ずっと会話を続けるなら、メッセージアプリ。<br />みんなに同じページを案内するなら、通常のQR。
+        </p>
+        <p>
+          QHandは、<strong>「この情報を、いま、この人に」</strong>のために。<br /><span
+            >写真・動画の転送や、不特定多数への一斉配布は用途に含めていません。</span
+          >
+        </p>
+      </aside>
+      <section class="questions-section" aria-labelledby="questions-title">
+        <h2 id="questions-title">使う前に、あと少し。</h2>
+        <div class="faq-list">
+          <details>
+            <summary>
+              相手も登録やインストールが必要ですか？<span aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              どちらも不要です。渡す人はQHandをブラウザで開き、受け取る人は最初のQRを標準カメラで読み取ります。開いた受信ページではカメラの使用を許可してください。
+            </p>
+          </details>
+          <details>
+            <summary>
+              インターネット接続は必要ですか？<span aria-hidden="true">＋</span>
+            </summary>
+            <p>
+              このページで紹介している通常版は、両方の端末に通信が必要です。接続準備にはサーバーを使いますが、情報の本文と暗号化した本文はQRで直接渡します。
+            </p>
+          </details>
+          <details>
+            <summary>
+              iPhoneとAndroidの間でも使えますか？<span aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              OS専用の共有機能に頼らず、ブラウザとカメラを使う設計です。端末やブラウザの対応状況、カメラ設定によって利用できない場合があります。まず少ない名刺項目で試してみてください。
+            </p>
+          </details>
+          <details>
+            <summary>
+              受け取った後の内容はどうなりますか？<span aria-hidden="true"
+                >＋</span
+              >
+            </summary>
+            <p>
+              名刺は「この端末に保管」を選んだときに、このブラウザへ保存されます。連絡先ファイルとして保存することもできます。メモ・案内は自動保存されないため、必要な内容をコピーして残してください。受け取り後のスクリーンショットや再共有を防ぐものではありません。
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="closing">
+        <p>次に誰かと会うときに。</p>
+        <h2>渡したい情報だけを、<br />QHandで。</h2>
+        <div class="closing-actions">
+          <a
+            class="button app-link"
+            href="https://qhand.pages.dev/cards/new"
+            data-app-path="cards/new"
+            >名刺を作ってみる <span aria-hidden="true">↗</span></a
+          ><a
+            class="text-link app-link"
+            href="https://qhand.pages.dev/structured-data/new"
+            data-app-path="structured-data/new"
+            >URLや案内を渡したい方はこちら <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <span class="closing-note"
+          >2台のスマートフォンで。通常版は通信が必要です。</span
+        >
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="wordmark" href="#main">QHand<span>.</span></a>
+      <p>QRで、情報を手渡す。</p>
+      <small>© <span id="year">2026</span> QHand</small
+      ><a href="#main">ページの先頭へ ↑</a>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
