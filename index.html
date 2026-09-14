@@ -200,20 +200,37 @@
           </div>
           <div class="demo-narration">
             <p id="narration" aria-live="polite"></p>
-            <div class="demo-controls">
-              <button type="button" id="advance-demo">
-                最初のQRを読み取る →</button
-              ><button type="button" id="replay-demo" class="replay-button">
-                最初から見る ↺</button
-              ><button
+          </div>
+          <div class="wizard-navigation" aria-label="受け渡し説明の操作">
+            <button type="button" id="previous-demo" class="wizard-back" hidden>
+              ← 戻る
+            </button>
+            <p id="wizard-progress" class="wizard-progress" aria-live="polite">
+              1 / 4
+            </p>
+            <div class="wizard-next-actions">
+              <button
                 type="button"
-                id="motion-toggle"
-                class="motion-button"
-                aria-pressed="false"
+                id="replay-demo"
+                class="replay-button"
+                hidden
               >
-                動きを止める
+                最初から見る ↺
+              </button>
+              <button type="button" id="advance-demo">
+                次へ：ブラウザで準備 →
               </button>
             </div>
+          </div>
+          <div class="demo-utilities">
+            <button
+              type="button"
+              id="motion-toggle"
+              class="motion-button"
+              aria-pressed="false"
+            >
+              動きを止める
+            </button>
           </div>
           <p class="demo-caption">
             各画面は実画面スクリーンショットへ差し替えるための仮画像です。読み取り・カメラ起動・実際の通信は行いません。

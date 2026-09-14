@@ -21,8 +21,10 @@ const demo = document.querySelector<HTMLElement>(".handoff-demo")!;
 const sender = document.querySelector<HTMLElement>("#sender-screen")!;
 const receiver = document.querySelector<HTMLElement>("#receiver-screen")!;
 const narration = document.querySelector<HTMLElement>("#narration")!;
+const previous = document.querySelector<HTMLButtonElement>("#previous-demo")!;
 const advance = document.querySelector<HTMLButtonElement>("#advance-demo")!;
 const replay = document.querySelector<HTMLButtonElement>("#replay-demo")!;
+const wizardProgress = document.querySelector<HTMLElement>("#wizard-progress")!;
 const motionToggle =
   document.querySelector<HTMLButtonElement>("#motion-toggle")!;
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -42,7 +44,7 @@ const flowScreens: Record<
     },
     receiver: {
       file: "handoff-receiver-camera-placeholder.svg",
-      alt: "受信側の標準カメラ画面を差し替えるための無地の仮画像。",
+      alt: "相手の標準カメラで、送信側に表示された最初のQRを読み取るイメージ。",
     },
   },
   connecting: {
@@ -79,38 +81,48 @@ const flowScreens: Record<
 
 function screenImage(side: "sender" | "receiver") {
   const screen = flowScreens[stage][side];
-  return `<img class="flow-screen-image" src="/screens/${screen.file}" width="440" height="850" alt="${screen.alt}" />`;
+  return `<img class="flow-screen-image" src="/screens/${screen.file}" width="738" height="1314" alt="${screen.alt}" />`;
 }
 
 function renderFlow() {
   demo.dataset.stage = stage;
+  const currentStageIndex = stages.indexOf(stage);
   document.querySelectorAll<HTMLElement>("[data-phase]").forEach((phase) => {
-    if (phase.dataset.phase === stage)
+    const phaseIndex = stages.indexOf(phase.dataset.phase as Stage);
+    if (phase.dataset.phase === stage) {
       phase.setAttribute("aria-current", "step");
-    else phase.removeAttribute("aria-current");
+      phase.dataset.state = "current";
+    } else {
+      phase.removeAttribute("aria-current");
+      phase.dataset.state =
+        phaseIndex < currentStageIndex ? "complete" : "upcoming";
+    }
   });
   let channel = "";
   let bodyLocation = "本文は、まだ<br />あなたの端末に。";
+  previous.hidden = currentStageIndex === 0;
   advance.hidden = false;
+  replay.hidden = true;
+  wizardProgress.textContent = `${currentStageIndex + 1} / ${stages.length}`;
   switch (stage) {
     case "start":
       channel = "受信ページを開く →";
       narration.textContent =
-        "最初のQRに、名刺の本文は入っていません。相手の標準カメラで読み取ると、受信ページが開きます。";
-      advance.textContent = "最初のQRを読み取る →";
+        "最初のQRを相手に読み取ってもらいます。このQRにはまだ名刺の本文は含まれていません。相手の標準カメラで読み取ると、受信ページが開きます。";
+      advance.textContent = "次へ：ブラウザで準備 →";
       break;
     case "connecting":
       channel = "サーバーで接続準備";
       narration.textContent =
         "相手のブラウザで受信準備が進みます。サーバーは接続準備の情報だけを中継し、本文はまだあなたの端末にあります。";
-      advance.textContent = "準備ができたら、次のQRへ →";
+      advance.textContent = "次へ：次のQRを読む →";
       break;
     case "encrypted":
       channel = "暗号化された名刺 →";
       bodyLocation = "ここで初めて、<br />本文が相手へ。";
       narration.textContent =
         "あなたの画面が次のQRに切り替わります。相手はブラウザのカメラを許可して、もう一度読み取り。暗号化された名刺が、QRを通して相手へ渡ります。";
-      advance.textContent = "次のQRを読み取って、受け取る →";
+      advance.textContent = "次へ：受け取り →";
       break;
     case "received":
       channel = "受け取りました";
@@ -118,6 +130,7 @@ function renderFlow() {
       narration.textContent =
         "相手の端末に名刺が表示されました。受け取った人は、このブラウザへの保管や連絡先ファイルへの保存を選べます。";
       advance.hidden = true;
+      replay.hidden = false;
       break;
   }
   sender.innerHTML = screenImage("sender");
@@ -134,9 +147,17 @@ advance.addEventListener("click", () => {
   if (stage === "received") replay.focus({ preventScroll: true });
   showUpdatedScreens();
 });
+previous.addEventListener("click", () => {
+  const previousStage = stages[stages.indexOf(stage) - 1];
+  if (!previousStage) return;
+  stage = previousStage;
+  renderFlow();
+  showUpdatedScreens();
+});
 replay.addEventListener("click", () => {
   stage = "start";
   renderFlow();
+  advance.focus({ preventScroll: true });
   showUpdatedScreens();
 });
 function showUpdatedScreens() {

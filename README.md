@@ -51,9 +51,9 @@ npm run preview
 | 端末保管、コピー、連絡先ファイル   | `ReceiverStartPage.tsx`、`components/StructuredDataView.tsx`                                                    |
 | 本文をサーバーへ送らない境界       | QHandの `AGENTS.md`、`docs/qhand_project_proposal.md`                                                           |
 
-名刺の項目調整と受け渡しデモには、実画面へ差し替えるための440×850pxの無地画像を配置しています。公開アプリでの撮影には説明用の一時データだけを使用し、実在する個人情報を含めません。
+名刺の項目調整と受け渡しデモには、実画面へ差し替えるための738×1314pxの画像を配置しています。最初の受信側標準カメラだけは、同じサイズでQR読み取り場面を描いたSVGを使用します。公開アプリでの撮影には説明用の一時データだけを使用し、実在する個人情報を含めません。
 
-Heroの受け渡しイメージは、2台のスマートフォン、QR、暗号化された情報の移動をHTMLとCSSで構成しています。画面スクリーンショットの差し替え対象は `card-selection-placeholder.png`、`card-selection-result-placeholder.png` と、`handoff-` で始まる7ファイルで、すべて横440px・縦850pxです。LP自体は受け渡しAPIやカメラを使いません。
+Heroの受け渡しイメージは、2台のスマートフォン、QR、暗号化された情報の移動をHTMLとCSSで構成しています。画面スクリーンショットの差し替え対象は `card-selection-placeholder.png`、`card-selection-result-placeholder.png` と、`handoff-` で始まる7ファイルです。LP自体は受け渡しAPIやカメラを使いません。
 
 ## 操作と検証
 

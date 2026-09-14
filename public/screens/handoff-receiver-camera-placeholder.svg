@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="738" height="1314" viewBox="0 0 738 1314" role="img" aria-labelledby="title desc">
+  <title id="title">最初のQRを標準カメラで読み取るイメージ</title>
+  <desc id="desc">シンプルな読み取り枠の中央にQRが置かれた案内図。</desc>
+
+  <rect width="738" height="1314" fill="#f3f2ed" />
+
+  <g font-family="Helvetica Neue, Arial, Hiragino Sans, sans-serif" text-anchor="middle">
+    <text x="369" y="170" fill="#292b28" font-size="34" font-weight="600">標準カメラで読み取る</text>
+    <text x="369" y="218" fill="#6b6e64" font-size="21">相手のスマートフォンを使います</text>
+  </g>
+
+  <rect x="91" y="310" width="556" height="556" rx="28" fill="#ebeae3" />
+
+  <g fill="none" stroke="#6f7467" stroke-linecap="round" stroke-width="8">
+    <path d="M145 445v-64c0-14 12-26 26-26h64M503 355h64c14 0 26 12 26 26v64M593 731v64c0 14-12 26-26 26h-64M235 821h-64c-14 0-26-12-26-26v-64" />
+  </g>
+
+  <g transform="translate(244 460)">
+    <rect width="250" height="250" rx="12" fill="#fff" />
+    <g fill="#292b28">
+      <path d="M25 25h58v58H25zm12 12v34h34V37zM167 25h58v58h-58zm12 12v34h34V37zM25 167h58v58H25zm12 12v34h34v-34z" />
+      <path d="M100 25h17v17h-17zm25 0h17v34h-17zm-25 42h25v17h-25zm42 25h17v25h-17zm25 8h25v17h-25zM25 108h25v17H25zm42-8h17v34H67zm33 17h25v17h-25zm25 25h17v25h-17zm25-8h34v17h-34zm42 0h33v25h-33zM92 175h25v17H92zm33-8h17v34h-17zm25 25h25v17h-25zm42-17h33v17h-33zm-100 42h42v8H92zm58 0h17v8h-17zm33-8h17v16h-17z" />
+    </g>
+    <rect x="116" y="116" width="18" height="18" fill="#b4442d" />
+  </g>
+
+  <circle cx="369" cy="936" r="5" fill="#b4442d" />
+  <g font-family="Helvetica Neue, Arial, Hiragino Sans, sans-serif" text-anchor="middle">
+    <text x="369" y="1000" fill="#292b28" font-size="30" font-weight="600">最初のQRを読み取ります</text>
+    <text x="369" y="1050" fill="#686c61" font-size="21">このQRに、名刺の本文は含まれていません。</text>
+    <text x="369" y="1087" fill="#686c61" font-size="21">読み取ると受信ページが開きます。</text>
+  </g>
+</svg>
