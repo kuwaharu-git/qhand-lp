@@ -3613,3 +3613,112 @@ h3 {
     padding: 4px;
   }
 }
+
+/* Unified type scale: fewer, larger sizes across the editorial content. */
+:root {
+  --type-section-heading: 48px;
+  --type-subheading: 24px;
+  --type-body: 18px;
+  --type-action: 16px;
+  --type-support: 14px;
+}
+
+body {
+  font-size: var(--type-body);
+}
+
+.site-header nav,
+.header-cta,
+.opening-scroll,
+.section-label,
+.method-label,
+.use-label,
+.use-case-list article > span,
+.handoff-outcome-copy > span,
+.terminal-label > span,
+.demo-utilities .motion-button,
+.demo-caption,
+.closing-note,
+.selection-screen figcaption,
+.selection-result-screen figcaption,
+.handoff-outcome figcaption,
+.use-case-feature figcaption,
+.site-footer p,
+.site-footer small,
+.site-footer > a:not(.wordmark) {
+  font-size: var(--type-support);
+}
+
+.button,
+.text-link,
+.wizard-back,
+.wizard-progress,
+.wizard-next-actions #advance-demo,
+.wizard-next-actions #replay-demo {
+  font-size: var(--type-action);
+}
+
+.what-copy h2,
+.selection-heading h2,
+.handoff-heading h2,
+.privacy-heading h2,
+.use-cases-heading h2,
+.questions-section h2,
+.closing h2 {
+  font-size: var(--type-section-heading);
+}
+
+.what-copy p,
+.selection-context,
+.selection-heading > p:last-child,
+.handoff-heading > p:not(.section-label),
+.demo-narration > p,
+.handoff-outcome-copy p,
+.handoff-afterword > p + p,
+.privacy-heading > p:last-child,
+.privacy-boundaries p,
+.use-cases-heading > p,
+.use-case-feature p,
+.use-case-list p,
+.use-case-scope,
+.faq-list summary,
+.faq-list details p,
+.closing > p {
+  font-size: var(--type-body);
+}
+
+.handoff-outcome h3,
+.handoff-afterword > p:first-child,
+.use-case-feature h3,
+.use-case-list h3 {
+  font-size: var(--type-subheading);
+}
+
+.privacy-boundaries h3 {
+  font-size: 20px;
+}
+
+.journey-track,
+.journey-track b,
+.channel-label,
+.channel-body {
+  font-size: var(--type-support);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --type-section-heading: 36px;
+    --type-subheading: 22px;
+    --type-body: 17px;
+    --type-support: 13px;
+  }
+
+  .terminal-label {
+    font-size: var(--type-action);
+  }
+
+  .channel-label,
+  .channel-body {
+    font-size: var(--type-support);
+  }
+}

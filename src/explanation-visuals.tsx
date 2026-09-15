@@ -133,7 +133,7 @@ function PrivacyVisual() {
       >
         <div className="ev-lane-title">
           <strong>
-            QHand<span>.</span>
+            QHand
           </strong>
           <span>本文はQRで、直接。</span>
         </div>

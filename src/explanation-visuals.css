@@ -199,7 +199,6 @@
   color: var(--muted);
 }
 .ev-lane--qhand .ev-lane-title > strong {
-  font-family: Georgia, serif;
   font-size: 30px;
   font-weight: 700;
 }
@@ -420,5 +419,41 @@
   }
   .ev-comparison {
     margin-top: 20px;
+  }
+}
+
+/* Keep explanatory labels on the same readable scale as the LP support text. */
+.ev-node > strong,
+.ev-node > span:last-child:not(.ev-phone):not(.ev-qr),
+.ev-sources > span,
+.ev-lane-title > span,
+.ev-support-server,
+.ev-support small {
+  font-size: 14px;
+}
+
+.ev-lane-title > strong {
+  font-size: 22px;
+}
+
+@media (max-width: 600px) {
+  .what-copy h2 {
+    font-size: 36px;
+  }
+
+  .ev-node > strong,
+  .ev-node > span:last-child:not(.ev-phone):not(.ev-qr),
+  .ev-sources > span,
+  .ev-support-server,
+  .ev-support small {
+    font-size: 12px;
+  }
+
+  .ev-lane-title > strong {
+    font-size: 18px;
+  }
+
+  .ev-lane-title > span {
+    font-size: 14px;
   }
 }
