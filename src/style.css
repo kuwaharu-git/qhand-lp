@@ -893,6 +893,11 @@ h3 {
 .handoff-demo[data-stage="received"] .data-arrow {
   display: none;
 }
+.handoff-demo[data-stage="received"] .channel-label {
+  color: #61794c;
+  font-size: 10px;
+  white-space: nowrap;
+}
 .handoff-demo[data-stage="received"] .transfer-line::before {
   content: "✓";
   display: block;
@@ -3215,6 +3220,12 @@ h3 {
     width: 16px;
     height: 9px;
     box-shadow: -6px 0 0 #b4442d40;
+  }
+  .handoff-demo[data-stage="received"] .channel-label {
+    font-size: 8px;
+  }
+  .handoff-demo[data-stage="received"] .channel-body {
+    display: none;
   }
   .handoff-outcome {
     width: calc(100% - 40px);

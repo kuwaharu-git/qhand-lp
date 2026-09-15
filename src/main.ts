@@ -16,7 +16,7 @@ document.querySelectorAll<HTMLAnchorElement>(".app-link").forEach((link) => {
 const year = document.querySelector<HTMLElement>("#year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-const stages = ["start", "connecting", "encrypted"] as const;
+const stages = ["start", "connecting", "encrypted", "received"] as const;
 type Stage = (typeof stages)[number];
 let stage: Stage = "start";
 const demo = document.querySelector<HTMLElement>(".handoff-demo")!;
@@ -69,6 +69,16 @@ const flowScreens: Record<
       alt: "相手がQHand内のカメラで最終QRを読み取る画面。",
     },
   },
+  received: {
+    sender: {
+      file: "handoff-sender-complete-placeholder.png",
+      alt: "情報を渡し終えた送信側のQHand画面。",
+    },
+    receiver: {
+      file: "handoff-receiver-card-placeholder.png",
+      alt: "受け取ったプロフィールが表示された相手側のQHand画面。",
+    },
+  },
 };
 
 function screenImage(side: "sender" | "receiver") {
@@ -114,6 +124,13 @@ function renderFlow() {
       bodyLocation = "最終QRで、<br />情報が相手へ。";
       narration.textContent =
         "03 手渡す。相手がQHandの画面でもう一度読み取ります。選んだ情報はブラウザ内で暗号化され、最終QRを通して相手へ直接渡ります。";
+      advance.textContent = "次へ：04 受け取る →";
+      break;
+    case "received":
+      channel = "受け渡し完了";
+      bodyLocation = "相手の端末で、<br />内容を確認。";
+      narration.textContent =
+        "04 受け取る。受け渡し完了です。渡す側には完了画面が表示され、受け取る側では内容の確認や端末への保存を選べます。";
       advance.hidden = true;
       replay.hidden = false;
       break;
@@ -129,7 +146,7 @@ advance.addEventListener("click", () => {
   if (!nextStage) return;
   stage = nextStage;
   renderFlow();
-  if (stage === "encrypted") replay.focus({ preventScroll: true });
+  if (stage === "received") replay.focus({ preventScroll: true });
   showUpdatedScreens();
 });
 previous.addEventListener("click", () => {
