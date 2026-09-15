@@ -110,20 +110,20 @@ function renderFlow() {
     case "start":
       channel = "受信ページを開く →";
       narration.textContent =
-        "01 つながる。相手が最初のQRを標準カメラで読み取ると、QHandの受信ページが開きます。このQRに情報本文は含まれていません。";
+        "01 渡す情報を選んだ後、表示されるQRを相手が標準カメラで読み取ると、QHandの受信ページが開きます。";
       advance.textContent = "次へ：02 たしかめる →";
       break;
     case "connecting":
       channel = "接続準備を確認";
       narration.textContent =
-        "02 たしかめる。渡す側は接続を、受け取る側は最終QRを読む画面を確認します。現行の通常版では、両端末で比較する確認コードは使用しません。";
+        "02 最初のQRを読み取り、相手がQHandのページを開くと安全に渡すための準備が始まります";
       advance.textContent = "次へ：03 手渡す →";
       break;
     case "encrypted":
       channel = "暗号化した情報 →";
       bodyLocation = "最終QRで、<br />情報が相手へ。";
       narration.textContent =
-        "03 手渡す。相手がQHandの画面でもう一度読み取ります。選んだ情報はブラウザ内で暗号化され、最終QRを通して相手へ直接渡ります。";
+        "03 準備が終わると新しいQRが表示されるので相手がQHandの画面でもう一度読み取ります。ここで情報が渡されます。";
       advance.textContent = "次へ：04 受け取る →";
       break;
     case "received":
