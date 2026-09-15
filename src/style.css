@@ -115,19 +115,16 @@ dd {
   border: 1px solid #53564c;
   padding: 13px 20px;
   font-size: 12px;
-  display: flex;
-  gap: 25px;
+  display: inline-flex;
   align-items: center;
+  transition: background 0.2s;
 }
 .header-cta:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: #eeeee5;
 }
 .button {
   display: inline-flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 35px;
   padding: 18px 24px;
   background: var(--accent);
   color: #fffaf1;
@@ -138,10 +135,6 @@ dd {
 }
 .button:hover {
   background: #933924;
-}
-.button span {
-  font-size: 21px;
-  line-height: 1;
 }
 .text-link {
   display: inline-block;
@@ -1303,7 +1296,6 @@ h3 {
   .header-cta {
     font-size: 11px;
     padding: 11px 14px;
-    gap: 15px;
   }
   .wordmark {
     font-size: 32px;
@@ -1331,7 +1323,6 @@ h3 {
   .opening-copy .button {
     padding: 16px 17px;
     font-size: 12px;
-    gap: 25px;
   }
   .opening-description {
     line-height: 2.1;
@@ -1483,7 +1474,6 @@ h3 {
   .opening-copy .button {
     font-size: 13px;
     padding: 17px 21px;
-    gap: 35px;
   }
   .opening-copy .small-note {
     font-size: 9px !important;
@@ -1825,7 +1815,6 @@ h3 {
   }
   .closing .button {
     font-size: 13px;
-    gap: 25px;
   }
   .closing-note {
     font-size: 9px;
