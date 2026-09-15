@@ -45,7 +45,7 @@ const flowScreens: Record<
       alt: "渡す側に開始QRが表示されたQHand画面。",
     },
     receiver: {
-      file: "handoff-receiver-camera-placeholder.svg",
+      file: "handoff-receiver-camera-placeholder.png",
       alt: "相手の標準カメラで、送信側に表示された最初のQRを読み取るイメージ。",
     },
   },
