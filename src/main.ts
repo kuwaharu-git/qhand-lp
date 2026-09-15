@@ -1,4 +1,6 @@
 import "./style.css";
+import "./explanation-visuals";
+import "./hero.css";
 
 const appUrl = new URL(
   import.meta.env.VITE_APP_URL || "https://qhand.pages.dev/",
@@ -14,7 +16,7 @@ document.querySelectorAll<HTMLAnchorElement>(".app-link").forEach((link) => {
 const year = document.querySelector<HTMLElement>("#year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-const stages = ["start", "connecting", "encrypted", "received"] as const;
+const stages = ["start", "connecting", "encrypted"] as const;
 type Stage = (typeof stages)[number];
 let stage: Stage = "start";
 const demo = document.querySelector<HTMLElement>(".handoff-demo")!;
@@ -40,7 +42,7 @@ const flowScreens: Record<
   start: {
     sender: {
       file: "handoff-sender-start-placeholder.png",
-      alt: "送信側の開始QR画面を差し替えるための無地の仮画像。",
+      alt: "渡す側に開始QRが表示されたQHand画面。",
     },
     receiver: {
       file: "handoff-receiver-camera-placeholder.svg",
@@ -50,31 +52,21 @@ const flowScreens: Record<
   connecting: {
     sender: {
       file: "handoff-sender-start-placeholder.png",
-      alt: "受信準備を待つ送信側画面を差し替えるための無地の仮画像。",
+      alt: "相手の受信準備を待つ、渡す側のQHand画面。",
     },
     receiver: {
       file: "handoff-receiver-connecting-placeholder.png",
-      alt: "受信側の接続準備画面を差し替えるための無地の仮画像。",
+      alt: "相手のブラウザで安全な接続を準備しているQHand画面。",
     },
   },
   encrypted: {
     sender: {
       file: "handoff-sender-encrypted-placeholder.png",
-      alt: "送信側の暗号化された名刺QR画面を差し替えるための無地の仮画像。",
+      alt: "渡す側に暗号化された情報の最終QRが表示されたQHand画面。",
     },
     receiver: {
       file: "handoff-receiver-scanner-placeholder.png",
-      alt: "受信側のQHand内QR読取画面を差し替えるための無地の仮画像。",
-    },
-  },
-  received: {
-    sender: {
-      file: "handoff-sender-complete-placeholder.png",
-      alt: "送信側の受け渡し完了画面を差し替えるための無地の仮画像。",
-    },
-    receiver: {
-      file: "handoff-receiver-card-placeholder.png",
-      alt: "受信側の名刺受取結果画面を差し替えるための無地の仮画像。",
+      alt: "相手がQHand内のカメラで最終QRを読み取る画面。",
     },
   },
 };
@@ -108,27 +100,20 @@ function renderFlow() {
     case "start":
       channel = "受信ページを開く →";
       narration.textContent =
-        "最初のQRを相手に読み取ってもらいます。このQRにはまだ名刺の本文は含まれていません。相手の標準カメラで読み取ると、受信ページが開きます。";
-      advance.textContent = "次へ：ブラウザで準備 →";
+        "01 つながる。相手が最初のQRを標準カメラで読み取ると、QHandの受信ページが開きます。このQRに情報本文は含まれていません。";
+      advance.textContent = "次へ：02 たしかめる →";
       break;
     case "connecting":
-      channel = "サーバーで接続準備";
+      channel = "接続準備を確認";
       narration.textContent =
-        "相手のブラウザで受信準備が進みます。サーバーは接続準備の情報だけを中継し、本文はまだあなたの端末にあります。";
-      advance.textContent = "次へ：次のQRを読む →";
+        "02 たしかめる。渡す側は接続を、受け取る側は最終QRを読む画面を確認します。現行の通常版では、両端末で比較する確認コードは使用しません。";
+      advance.textContent = "次へ：03 手渡す →";
       break;
     case "encrypted":
-      channel = "暗号化された名刺 →";
-      bodyLocation = "ここで初めて、<br />本文が相手へ。";
+      channel = "暗号化した情報 →";
+      bodyLocation = "最終QRで、<br />情報が相手へ。";
       narration.textContent =
-        "あなたの画面が次のQRに切り替わります。相手はブラウザのカメラを許可して、もう一度読み取り。暗号化された名刺が、QRを通して相手へ渡ります。";
-      advance.textContent = "次へ：受け取り →";
-      break;
-    case "received":
-      channel = "受け取りました";
-      bodyLocation = "本文は、<br />相手の画面に。";
-      narration.textContent =
-        "相手の端末に名刺が表示されました。受け取った人は、このブラウザへの保管や連絡先ファイルへの保存を選べます。";
+        "03 手渡す。相手がQHandの画面でもう一度読み取ります。選んだ情報はブラウザ内で暗号化され、最終QRを通して相手へ直接渡ります。";
       advance.hidden = true;
       replay.hidden = false;
       break;
@@ -144,7 +129,7 @@ advance.addEventListener("click", () => {
   if (!nextStage) return;
   stage = nextStage;
   renderFlow();
-  if (stage === "received") replay.focus({ preventScroll: true });
+  if (stage === "encrypted") replay.focus({ preventScroll: true });
   showUpdatedScreens();
 });
 previous.addEventListener("click", () => {

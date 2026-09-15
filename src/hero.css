@@ -1,0 +1,223 @@
+/* A single, direct handoff on the page background. */
+.opening {
+  width: min(1280px, calc(100% - 96px));
+  min-height: 0;
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+  align-items: center;
+  column-gap: 24px;
+  padding: 42px 0 56px;
+}
+.opening-copy {
+  padding: 0;
+}
+.opening-copy h1 {
+  font-size: clamp(44px, 4.45vw, 64px);
+  line-height: 1.35;
+}
+.opening-description {
+  margin: 22px 0 24px;
+  font-size: 16px;
+  line-height: 1.9;
+  max-width: 460px;
+}
+.opening-screen {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  align-self: center;
+}
+.hero-handoff-visual {
+  aspect-ratio: 1.65;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.hero-phone {
+  top: 6cqw;
+  width: 26cqw;
+  height: 49cqw;
+  padding: 0.55cqw;
+  box-shadow: 0 1.7cqw 3.2cqw #292b2810;
+}
+.hero-phone--sender {
+  left: 1cqw;
+  transform: rotate(-4deg);
+}
+.hero-phone--receiver {
+  top: 6cqw;
+  right: 1cqw;
+  transform: rotate(4deg);
+}
+.hero-phone-screen {
+  padding: 6cqw 2cqw 2cqw;
+  background: #fbfaf5;
+}
+.hero-ui-title {
+  font-size: 1.95cqw;
+  font-weight: 500;
+  text-align: center;
+  margin: 1cqw 0 3cqw;
+}
+.hero-choice-list {
+  display: grid;
+  gap: 1.6cqw;
+}
+.hero-choice-list > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5.4cqw;
+  padding: 1.2cqw;
+  border-radius: 0.7cqw;
+  background: #efeee7;
+}
+.hero-choice-list i {
+  width: 10cqw;
+  height: 0.65cqw;
+  background: #cccfc3;
+  border-radius: 1cqw;
+}
+.hero-choice-list > span:nth-child(2) i {
+  width: 7cqw;
+}
+.hero-choice-list > span:nth-child(4) i {
+  width: 8cqw;
+}
+.hero-choice-list b {
+  display: grid;
+  place-items: center;
+  width: 2.5cqw;
+  height: 2.5cqw;
+  border: 0.15cqw solid #c8cabf;
+  border-radius: 0.4cqw;
+  font-size: 1.7cqw;
+  font-weight: 500;
+}
+.hero-choice-list .is-selected b {
+  color: white;
+  background: #78806b;
+  border-color: #78806b;
+}
+.hero-phone-action {
+  height: 5.5cqw;
+  bottom: 3cqw;
+  line-height: 5.2cqw;
+}
+.hero-code-card {
+  top: 21cqw;
+  width: 19cqw;
+  padding: 1cqw;
+  border: 0;
+  border-radius: 1.2cqw;
+  background: white;
+  box-shadow: 0 1cqw 3cqw #292b2810;
+  transform: translateX(-50%);
+}
+.hero-connector {
+  top: 30.5cqw;
+  width: 10cqw;
+  height: 0.35cqw;
+  border: 0;
+  background: var(--accent);
+  transform: none;
+}
+.hero-connector--before {
+  left: 29cqw;
+}
+.hero-connector--after {
+  right: 29cqw;
+}
+.hero-connector::before {
+  content: "";
+  position: absolute;
+  left: 2cqw;
+  top: -0.45cqw;
+  width: 1.2cqw;
+  height: 1.2cqw;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 2.6cqw 0 0 var(--accent);
+}
+.hero-connector::after {
+  top: -0.65cqw;
+  right: 0;
+  width: 1.5cqw;
+  height: 1.5cqw;
+  border-width: 0.35cqw;
+}
+.hero-phone--receiver .hero-complete-mark {
+  top: 15cqw;
+  bottom: auto;
+  width: 9cqw;
+}
+.hero-phone--receiver .hero-complete-mark::after {
+  top: 2.5cqw;
+  left: 2.1cqw;
+  width: 4cqw;
+  height: 2.3cqw;
+}
+.hero-received-title {
+  position: absolute;
+  top: 27cqw;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 2.1cqw;
+  font-weight: 500;
+}
+.opening-scroll {
+  bottom: 0;
+  font-size: 12px;
+}
+.opening + .what-section {
+  margin-top: 40px;
+}
+@media (max-width: 800px) {
+  .opening {
+    width: calc(100% - 48px);
+    column-gap: 12px;
+    padding-top: 32px;
+  }
+  .opening-copy h1 {
+    font-size: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .opening {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: calc(100% - 40px);
+    gap: 8px;
+    padding: 24px 0 28px;
+  }
+  .opening-copy h1 {
+    font-size: clamp(34px, 9.5vw, 46px);
+    line-height: 1.25;
+  }
+  .opening-description {
+    margin: 14px 0 16px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .opening-copy .button {
+    padding: 13px 18px;
+  }
+  .opening-screen {
+    width: min(100%, 370px);
+    margin: 0 auto;
+    justify-self: center;
+  }
+  .hero-ui-title {
+    font-size: 2.5cqw;
+  }
+  .hero-received-title {
+    font-size: 2.7cqw;
+  }
+  .opening-scroll {
+    font-size: 11px;
+  }
+  .opening + .what-section {
+    margin-top: 24px;
+  }
+}
